@@ -46,9 +46,11 @@ function textToHex() {
 }
 
 function openURL() {
-    let splittedString = splittedStrings(output.innerHTML);
+    let splittedString = splittedStrings(output.innerText);
     for (let i = 0; i < splittedString.length; i++) {
-        window.open(splittedString[i]);
+        if (splittedString[i] === "") { continue; } {
+            window.open(splittedString[i]);
+        }
     }
 }
 
