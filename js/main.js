@@ -143,14 +143,16 @@ function selectType() {
         output.dataset.placeholder = "Converted HexaDecimal";
         output.contentEditable = "true";
         document.getElementById("filter").style.display = "none"
-        input.oninput = hexdecode.onclick = function() { textToHex(); };
+        hexdecode.onclick = function() { textToHex(); };
+        checkBox();
     } else {
         clean();
         input.placeholder = "Enter HexaDecimal";
         output.dataset.placeholder = "Converted String";
         output.contentEditable = "false";
         document.getElementById("filter").style.display = "block"
-        input.oninput = hexdecode.onclick = function() { hexToText(); };
+        hexdecode.onclick = function() { hexToText(); };
+        checkBox()
     }
 }
 function removeError() {
