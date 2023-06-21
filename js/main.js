@@ -111,9 +111,7 @@ function copy(buttonId){
                 copy.classList.remove("active");
             },2500);
             const mydata = input.value;
-            const preserver = document.createElement("input");
-            preserver.value = mydata;
-            navigator.clipboard.writeText(preserver.innerHTML);
+            navigator.clipboard.writeText(mydata);
             // document.getElementById("error").innerHTML = "Copy successful";
           } else if (buttonId === 2) {
             let copy = document.querySelector(".output-text")
