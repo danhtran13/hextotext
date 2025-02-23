@@ -2,6 +2,21 @@ const searchSrtring = "http";
 const hexRegex = /68747470([0-9A-Fa-f]{2,})/g;
 const input = document.getElementById("input");
 const output = document.getElementById("output")
+
+var select = document.getElementById("select")
+select.addEventListener("change", selectType)
+
+document.getElementById("paste").addEventListener("click", pasteData);
+document.getElementById("clean").addEventListener("click", clean);
+document.getElementById("checkhex").addEventListener("click", checkHex);
+document.getElementById("isAuto").addEventListener("click", checkBox);
+document.getElementById("convert").addEventListener("click", hexToText);
+
+document.querySelectorAll(".open-mobile button, #open").forEach(element => {
+    element.addEventListener("click", openURL);
+});
+
+
 function hexToText() {
     let text = "";
     let content = "";
@@ -63,7 +78,7 @@ function pasteData() {
     });
 }
 
-function filter() {
+function checkHex() {
     let j = 0;
     let content = input.value;
     let splittedString = splittedStrings(content);
@@ -135,23 +150,23 @@ function splittedStrings(string) {
       });
 }
 function selectType() {
-    let select = document.getElementById("select").value,
-        hexdecode = document.getElementById("hexdecode");
-    if (select == 2) {
+    // let select = document.getElementById("select").value,
+        convert = document.getElementById("convert");
+    if (select.value == "Text") {
         clean();
         input.placeholder = "Enter String";
         output.dataset.placeholder = "Converted HexaDecimal";
-        output.contentEditable = "true";
-        document.getElementById("filter").style.display = "none"
-        hexdecode.onclick = function() { textToHex(); };
+        // output.contentEditable = "true";
+        document.getElementById("checkhex").style.display = "none"
+        convert.onclick = function() { textToHex(); };
         checkBox();
     } else {
         clean();
         input.placeholder = "Enter HexaDecimal";
         output.dataset.placeholder = "Converted String";
-        output.contentEditable = "false";
-        document.getElementById("filter").style.display = "block"
-        hexdecode.onclick = function() { hexToText(); };
+        // output.contentEditable = "false";
+        document.getElementById("checkhex").style.display = "block"
+        convert.onclick = function() { hexToText(); };
         checkBox()
     }
 }
