@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Hex to Text</title>
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/x-icon" href="image/favicon.ico">
 </head>
 
@@ -42,7 +43,7 @@
                 <button id="paste"><i class="far fa-clipboard"></i> Paste</button>
                 <button id="clean"><i class="fas fa-trash-alt" aria-hidden="true"></i> Clean</button>
                 <button id="checkhex"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Check Hex</button>
-                <input type="checkbox" id="isAuto" checked><label for="myCheck"> Auto</label>
+                <input type="checkbox" id="isAuto" checked><label for="isAuto"> Auto</label>
                 <button id="convert"><i class="fas fa-retweet"></i> Convert</button>
                 <button id="open"><i class="fa fa-external-link" aria-hidden="true"></i> Open</button>
             </div>
@@ -58,6 +59,13 @@
         </div>
     </div>
     <script src="js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('Service Worker registered!'))
+                .catch((error) => console.error('Service Worker registration failed:', error));
+        }
+    </script>
 </body>
 
 </html>
