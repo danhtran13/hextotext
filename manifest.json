@@ -1,5 +1,6 @@
 {
     "name": "Hex To Text",
+    "short_name": "Hex To Text",
     "start_url": "index.html",
     "display": "standalone",
     "icons": [
