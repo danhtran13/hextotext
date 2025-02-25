@@ -3,6 +3,6 @@ self.addEventListener("install", (event) => {
     self.skipWaiting();
 });
 
-self.addEventListener("fetch", (event) => {
-    // console.log("Fetching:", event.request.url);
-});
+// self.addEventListener("fetch", (event) => {
+//     console.log("Fetching:", event.request.url);
+// });
